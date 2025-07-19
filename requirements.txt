@@ -1,5 +1,5 @@
 Flask==3.1.1
-spacy==3.8.7
+spacy>=3.8.7,<3.9.0
 pdfminer.six==20250506
 scikit-learn==1.7.0
 pyresparser==1.0.6

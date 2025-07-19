@@ -10,8 +10,8 @@ class EnhancedResumeExtractor:
         try:
             self.nlp = spacy.load("en_core_web_sm")
         except OSError:
-            print("spaCy model not found. Install with: python -m spacy download en_core_web_sm")
-            self.nlp = None
+            import subprocess
+            subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
 
     def extract_entities_multi_approach(self, file_path, resume_text):
         # Multi-layered entity extraction combining multiple approaches
