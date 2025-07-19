@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask config and env files
+instance/
+.env
+*.env
+*.secret
+.env.*
+
+# PyCharm project files
+.idea/
+*.iml
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Pytest
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Backup files
+*.bak
+*.swp
+
+# VSCode
+.vscode/
