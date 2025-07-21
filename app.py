@@ -6,6 +6,12 @@ import csv
 from enhanced_extraction import EnhancedResumeExtractor
 import os
 from flask.cli import load_dotenv
+import nltk
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 load_dotenv()
 
