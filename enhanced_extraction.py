@@ -1,5 +1,8 @@
 import nltk
-nltk.data.path.append('./nltk_data')  # Use your project folder for NLTK data
+import os
+nltk_path = os.path.abspath('./nltk_data')
+print(f"[DEBUG] Using NLTK data path: {nltk_path}")
+nltk.data.path.append(nltk_path)
 
 import re
 import spacy
