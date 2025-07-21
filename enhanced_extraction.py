@@ -1,3 +1,6 @@
+import nltk
+nltk.data.path.append('./nltk_data')  # Use your project folder for NLTK data
+
 import re
 import spacy
 from pyresparser import ResumeParser
