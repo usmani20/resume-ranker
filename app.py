@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file, send_from_directory
-from pdfminer.high_level import extract_text
+# from pdfminer.high_level import extract_text
+import fitz
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import csv
@@ -19,14 +20,24 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY')
 extractor = EnhancedResumeExtractor()
 
 
+# def extract_text_from_pdf(pdf_path):
+#     try:
+#         text = extract_text(pdf_path)
+#         return text
+#     except Exception as e:
+#         print(f"[PDF Error] {e}")
+#         return ""
+
 def extract_text_from_pdf(pdf_path):
     try:
-        text = extract_text(pdf_path)
+        text = ""
+        with fitz.open(pdf_path) as doc:
+            for page in doc:
+                text += page.get_text()
         return text
     except Exception as e:
-        print(f"[PDF Error] {e}")
+        print(f"[PyMuPDF Error] {e}")
         return ""
-
 
 def enhanced_similarity_scoring(job_description, resume_text, skills_weight=0.3):
 
